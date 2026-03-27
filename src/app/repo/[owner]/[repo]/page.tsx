@@ -2,6 +2,11 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useParams } from 'next/navigation'
+
+// Required for static export with dynamic routes
+export function generateStaticParams() {
+  return []
+}
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import draculaTheme from 'react-syntax-highlighter/dist/esm/styles/prism/dracula'
