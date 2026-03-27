@@ -1,0 +1,41 @@
+.tree {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+}
+
+.folderBtn, .fileBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: background 150ms;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.folderBtn:hover, .fileBtn:hover {
+  background: var(--bg-hover);
+}
+
+.folderBtn {
+  color: var(--text-primary);
+}
+
+.name {
+  flex: 1;
+}

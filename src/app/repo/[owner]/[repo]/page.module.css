@@ -1,0 +1,636 @@
+/* Container */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.repoIdentifier {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+.repoOwner {
+  color: var(--text-secondary);
+}
+
+.repoSeparator {
+  color: var(--text-muted);
+}
+
+.repoRepo {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* View Navigation */
+.viewNav {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  gap: var(--space-1);
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.viewBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.viewBtn.active {
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.viewBtn svg {
+  flex-shrink: 0;
+}
+
+/* Sub Tabs */
+.subTabs {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-4) var(--space-4);
+  gap: var(--space-1);
+  border-left: 2px solid var(--border-subtle);
+  margin-left: var(--space-6);
+}
+
+.subTab {
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.subTab:hover {
+  color: var(--text-secondary);
+}
+
+.subTab.active {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+/* Sidebar Footer */
+.sidebarFooter {
+  margin-top: auto;
+  padding: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.exportBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.exportBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  margin-left: 280px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+/* Loading State */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+.loadingAnimation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.loadingOrb {
+  position: absolute;
+  inset: 0;
+}
+
+.orbCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent) 0%, #22d3ee 100%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.orbRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+.orbRing2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: ringPulse 2s ease-in-out infinite 0.3s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.2; }
+}
+
+.loadingIcon {
+  font-size: 32px;
+  z-index: 1;
+  animation: iconBounce 1s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.loadingTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.repoNameHighlight {
+  color: var(--accent);
+}
+
+.loadingSteps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+  min-width: 280px;
+}
+
+.loadingStep {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+}
+
+.stepActive {
+  opacity: 1;
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.stepDone {
+  opacity: 0.7;
+}
+
+.stepDot {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.stepLabel {
+  font-size: 14px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.stepHint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.progressBar {
+  width: 200px;
+  height: 4px;
+  background: var(--border-default);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #22d3ee);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Legacy spinner for fallback */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-default);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: var(--space-6);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingHint {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Overview Content */
+.overviewContent {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.repoHeader {
+  margin-bottom: var(--space-8);
+}
+
+.repoName {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.repoStats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.stat svg {
+  color: var(--text-muted);
+}
+
+.statBadge {
+  padding: var(--space-1) var(--space-3);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-muted);
+  border-radius: var(--radius-sm);
+}
+
+.statText {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.repoDescription {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-8);
+}
+
+.overviewDiagrams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.miniDiagramCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+}
+
+.miniDiagramCard h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.miniDiagram {
+  width: 100%;
+  height: auto;
+}
+
+/* Dev/Logic/Scenario Content */
+.devContent,
+.logicContent,
+.scenarioContent {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.devContent h2,
+.logicContent h2,
+.scenarioContent h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+/* Code Block */
+.codeBlock {
+  padding: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Dependency Graph */
+.graphContainer {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  overflow-x: auto;
+}
+
+.dependencyGraph {
+  width: 100%;
+  min-width: 400px;
+  height: auto;
+}
+
+.graphNode {
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.graphNode:hover {
+  transform: scale(1.05);
+}
+
+/* Architecture Layers */
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.layer {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: border-color var(--transition-fast);
+}
+
+.layer:hover {
+  border-color: var(--border-default);
+}
+
+.layerHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.layerNumber {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.layerHeader h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.layerHeader p {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.layerComponents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.component {
+  padding: var(--space-2) var(--space-3);
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+/* Sequence Diagram */
+.sequenceDiagram {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sequenceStep {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast);
+}
+
+.sequenceStep:hover {
+  border-color: var(--border-default);
+}
+
+.stepLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.stepFrom {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.stepArrow {
+  color: var(--text-muted);
+}
+
+.stepTo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+}
+
+.stepAction {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: var(--space-2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}

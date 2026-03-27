@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: border-color 200ms;
+}
+
+.step:hover {
+  border-color: var(--border-default);
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.from {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.arrow {
+  color: var(--text-muted);
+}
+
+.to {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-warm);
+  font-family: var(--font-mono);
+}
+
+.action {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 8px;
+}

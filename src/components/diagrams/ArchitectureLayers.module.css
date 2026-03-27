@@ -1,0 +1,182 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.legendToggle {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.legendToggle:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-default);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.layerStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.layer {
+  border: 1px solid;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: filter 200ms;
+}
+
+.layer:hover {
+  filter: brightness(1.05);
+}
+
+.layerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+}
+
+.layerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.layerNum {
+  font-size: 22px;
+  font-weight: 700;
+  opacity: 0.4;
+  line-height: 1;
+  min-width: 28px;
+}
+
+.layerIcon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.layerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.layerName {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.layerDesc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+.layerRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.layerBadge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border: 1px solid;
+  border-radius: 999px;
+}
+
+.expandIcon {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.componentGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 16px;
+}
+
+.component {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.compDot {
+  font-size: 6px;
+  opacity: 0.7;
+}
+
+.compName {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.componentPreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 20px 16px;
+}
+
+.compChip {
+  font-size: 11px;
+  padding: 3px 9px;
+  border: 1px solid;
+  border-radius: 6px;
+  font-weight: 500;
+}
