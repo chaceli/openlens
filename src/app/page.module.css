@@ -495,13 +495,13 @@
   padding: 0 40px;
 }
 
-/* Single continuous connector line - placed below text, at step content level */
+/* Single continuous connector line - placed below step text content */
 .steps::before {
   content: '';
   position: absolute;
-  top: 90px;
-  left: 100px;
-  right: 100px;
+  top: 130px;
+  left: 120px;
+  right: 120px;
   height: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
@@ -509,7 +509,7 @@
     var(--accent) 95%,
     transparent 100%
   );
-  box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
   opacity: 0.5;
   pointer-events: none;
 }
