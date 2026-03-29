@@ -487,18 +487,39 @@
 
 .steps {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 120px;
+  gap: 0;
   margin-top: var(--space-16);
+  position: relative;
+  padding: 0 40px;
+}
+
+/* Single continuous connector line */
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 80px;
+  right: 80px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 5%,
+    var(--accent) 95%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .step {
   flex: 0 0 auto;
   width: 200px;
-  text-align: left;
-  /* Needed so ::before/::after use .step as positioning anchor */
+  text-align: center;
   position: relative;
+  padding-top: 0;
 }
 
 .stepNumber {
@@ -508,44 +529,30 @@
   color: var(--text-muted);
   line-height: 1;
   margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 2;
+  display: inline-block;
 }
 
-/* Each step has a connector using ::after (line) and ::before (dot) */
-/* Steps are now at DOM children 0, 1, 2 (no more stepConnectors) */
-/* nth-child(1) = step1, nth-child(2) = step2, nth-child(3) = step3 (no ::after) */
-.step:nth-child(1)::after,
-.step:nth-child(2)::after {
+/* Glowing dot centered on the connector line */
+.step::after {
   content: '';
   position: absolute;
-  /* Vertically center 2px line with 48px step number */
-  top: 23px;
-  /* Line starts at step's right edge (left=200), width 120px */
-  /* This keeps the line within the gap (step ends at 200, gap starts at 200) */
-  left: 200px;
-  width: 120px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
-  box-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-/* Dot centered on the step boundary (at x=200 in step coords) */
-.step:nth-child(1)::before,
-.step:nth-child(2)::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  /* left: 196px centers 8px dot on step boundary (200-4=196, 200+4=204) */
-  left: 196px;
-  width: 8px;
-  height: 8px;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 12px var(--accent);
+  box-shadow: 0 0 16px var(--accent), 0 0 32px rgba(34, 211, 238, 0.5);
+  z-index: 3;
   pointer-events: none;
-  z-index: 1;
+}
+
+/* Hide the dot on last step to avoid double with line end */
+.step:last-child::after {
+  display: none;
 }
 
 .stepContent h3 {
@@ -631,6 +638,11 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
+    padding: 0;
+  }
+
+  .steps::before {
+    display: none;
   }
 
   .step {
@@ -639,12 +651,8 @@
     text-align: center;
   }
 
-  /* Hide horizontal connectors on mobile */
-  .step:not(:last-child)::after {
-    display: none;
-  }
-
-  .step:not(:last-child)::before {
+  /* Hide connector dots on mobile */
+  .step::after {
     display: none;
   }
 
