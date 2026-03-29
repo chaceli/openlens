@@ -518,7 +518,7 @@
   content: '';
   position: absolute;
   /* Vertically center 2px line with 48px step number */
-  top: 24px;
+  top: 23px;
   /* Line starts at step's right edge (left=200), width 120px */
   /* This keeps the line within the gap (step ends at 200, gap starts at 200) */
   left: 200px;
