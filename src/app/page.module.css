@@ -495,13 +495,13 @@
   padding: 0 40px;
 }
 
-/* Single continuous connector line */
+/* Single continuous connector line - placed below text, at step content level */
 .steps::before {
   content: '';
   position: absolute;
-  top: 28px;
-  left: 80px;
-  right: 80px;
+  top: 90px;
+  left: 100px;
+  right: 100px;
   height: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
@@ -510,7 +510,7 @@
     transparent 100%
   );
   box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -532,27 +532,6 @@
   position: relative;
   z-index: 2;
   display: inline-block;
-}
-
-/* Glowing dot centered on the connector line */
-.step::after {
-  content: '';
-  position: absolute;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 16px var(--accent), 0 0 32px rgba(34, 211, 238, 0.5);
-  z-index: 3;
-  pointer-events: none;
-}
-
-/* Hide the dot on last step to avoid double with line end */
-.step:last-child::after {
-  display: none;
 }
 
 .stepContent h3 {
@@ -649,11 +628,6 @@
     width: 100%;
     max-width: 300px;
     text-align: center;
-  }
-
-  /* Hide connector dots on mobile */
-  .step::after {
-    display: none;
   }
 
   .footerContent {
